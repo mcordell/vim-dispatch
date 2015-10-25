@@ -136,9 +136,9 @@ endfunction
 
 function! dispatch#callback(request) abort
   if !empty(v:servername) && has_key(s:request(a:request), 'id')
-    return dispatch#shellescape(dispatch#vim_executable()) .
-          \ ' --servername ' . dispatch#shellescape(v:servername) .
-          \ ' --remote-expr "' . 'DispatchComplete(' . s:request(a:request).id . ')' . '"'
+    return dispatch#shellescape('/Users/michael/.nvim/plugged/vim-dispatch/test.py') .
+          \ ' --address ' . dispatch#shellescape(v:servername) .
+          \ ' --expr "' . 'DispatchComplete(' . s:request(a:request).id . ')' . '"'
   endif
   return ''
 endfunction
